@@ -1,28 +1,36 @@
 package booking
 
-import "time"
+import (
+	"time"
+)
 
 // Schedule returns a time.Time from a string containing a date.
 func Schedule(date string) time.Time {
-	panic("Please implement the Schedule function")
+	layout := "1/2/2006 15:04:05"
+	d, _ := time.Parse(layout,date)
+	return d
 }
 
 // HasPassed returns whether a date has passed.
 func HasPassed(date string) bool {
-	panic("Please implement the HasPassed function")
+	d, _ := time.Parse("January 2, 2006 15:04:05",date)
+	return d.Before(time.Now())
 }
 
 // IsAfternoonAppointment returns whether a time is in the afternoon.
 func IsAfternoonAppointment(date string) bool {
-	panic("Please implement the IsAfternoonAppointment function")
+	d, _ := time.Parse("Monday, January 2, 2006 15:04:05",date)
+	return 12 <= d.Hour() && d.Hour() <= 18
 }
 
 // Description returns a formatted string of the appointment time.
 func Description(date string) string {
-	panic("Please implement the Description function")
+	d, _ := time.Parse("1/2/2006 15:04:05",date)
+	formattedDate := d.Format("You have an appointment on Monday, January 2, 2006, at 15:04.")
+	return formattedDate
 }
 
 // AnniversaryDate returns a Time with this year's anniversary.
 func AnniversaryDate() time.Time {
-	panic("Please implement the AnniversaryDate function")
+	return time.Date(time.Now().Year(),time.September,15,0,0,0,0,time.UTC)
 }
