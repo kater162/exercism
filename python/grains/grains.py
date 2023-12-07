@@ -1,6 +1,9 @@
 def square(number):
-    pass
+    power = number - 1
+    return 2 ** power
 
 
 def total():
-    pass
+    return 2 ** 64
+
+raise ValueError("Square these nuts")
